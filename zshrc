@@ -13,9 +13,9 @@ export HOMEBREW_NO_ANALYTICS=1
 ZSH_DISABLE_COMPFIX=true
 
 # Actually load Oh-My-Zsh
-source "${ZSH}/oh-my-zsh.sh"
-unalias rm # No interactive rm by default (brought by plugins/common-aliases)
-unalias lt # we need `lt` for https://github.com/localtunnel/localtunnel
+#source "${ZSH}/oh-my-zsh.sh"
+#unalias rm # No interactive rm by default (brought by plugins/common-aliases)
+#unalias lt # we need `lt` for https://github.com/localtunnel/localtunnel
 
 # Load rbenv if installed (to manage your Ruby versions)
 export PATH="${HOME}/.rbenv/bin:${PATH}" # Needed for Linux/WSL
@@ -70,3 +70,7 @@ export EDITOR=code
 
 # Set ipdb as the default Python debugger
 export PYTHONBREAKPOINT=ipdb.set_trace
+
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  eval "$(oh-my-posh init zsh --config 'https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/powerlevel10k_rainbow.omp.json')"
+fi
